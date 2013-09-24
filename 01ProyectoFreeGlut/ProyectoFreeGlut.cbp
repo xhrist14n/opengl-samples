@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="ProyectoFreeGlut" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Script file="lib_finder.script" />
+			<Target title="default">
+				<Option output="ProyectoFreeGlut" prefix_auto="1" extension_auto="1" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-DFREEGLUT_STATIC" />
+		</Compiler>
+		<Linker>
+			<Add library="..\..\DevPak\lib\libfreeglut.a" />
+			<Add library="..\..\..\..\..\konsole\CodeBlocks\MinGW\lib\libglu32.a" />
+			<Add library="..\..\..\..\..\konsole\CodeBlocks\MinGW\lib\libpenwin32.a" />
+			<Add library="..\..\..\..\..\konsole\CodeBlocks\MinGW\lib\libopengl32.a" />
+			<Add library="..\..\..\..\..\konsole\CodeBlocks\MinGW\lib\libwinmm.a" />
+			<Add library="..\..\..\..\..\konsole\CodeBlocks\MinGW\lib\libgdi32.a" />
+			<Add library="..\..\..\..\..\konsole\CodeBlocks\MinGW\lib\libglaux.a" />
+			<Add directory="../../DevPak/lib" />
+		</Linker>
+		<Unit filename="main.cpp" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+			<lib_finder disable_auto="1" />
+			<DoxyBlocks>
+				<comment_style block="0" line="0" />
+				<doxyfile_project />
+				<doxyfile_build />
+				<doxyfile_warnings />
+				<doxyfile_output />
+				<doxyfile_dot />
+				<general />
+			</DoxyBlocks>
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

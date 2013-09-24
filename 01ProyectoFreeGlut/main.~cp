@@ -1,0 +1,98 @@
+#include <GL/freeglut.h>
+#include <cstdarg>
+#include <cstdio>
+#include <cstdlib>
+#include <cmath>
+#include <ctime>
+#include <iostream>
+#include <cassert>
+#ifdef _MSC_VER
+#include <crtdbg.h>
+#endif
+
+using namespace std;
+//Initialize OpenGL 
+void init(void) {
+    glClearColor(1, 1, 1, 0);
+
+    glViewport(0, 0, 500, 500);
+    
+    glMatrixMode(GL_PROJECTION);
+    
+    glLoadIdentity();
+    
+    glOrtho(0, 500, 0, 500, 1, -1);
+    
+    glMatrixMode(GL_MODELVIEW);
+    glLoadIdentity();    
+} 
+/*
+void drawLines(void) {//dibujo de linea
+    glClear(GL_COLOR_BUFFER_BIT);  
+    glColor3f(0.4,0.4,0.7); 
+    glPointSize(3.0);  
+
+    glBegin(GL_LINES);//Linea dibujada
+    glVertex2d(180, 15);
+    glVertex2d(10, 145);
+    glEnd();
+    glFlush();
+} 
+/**/
+
+void drawLines(void) { //dibujo de circulo
+    float PI=3.1415926535897932384626433832795;
+    float x,y;
+    float radius = 0.5f;
+    glClear(GL_COLOR_BUFFER_BIT);  
+    glColor3f(0.4,0.4,0.7); 
+    glPointSize(3.0);  
+
+    glBegin(GL_LINES);//Linea dibujada
+    x = (float)radius * cos(359 * PI/180.0f)*180+360;
+    y = (float)radius * sin(359 * PI/180.0f)*180+360;
+    for(int j = 0; j < 360; j++)    {
+        glVertex2d(x,y);
+//        x = (float)radius * cos(j * PI/180.0f)*180+360;
+        std::cout<<"x: "<<x<<endl;
+        
+        y = (float)radius * sin(j * PI/180.0f)*180+360;
+//        std::cout<<"y: "<<y<<endl;        
+        glVertex2d(x,y);
+    }
+    glEnd();
+    glFlush();
+} 
+/**/
+/*
+void drawLines(void) {
+    
+    glClear(GL_COLOR_BUFFER_BIT); 
+    glLineWidth(5); //5 pixels 
+    glColor3f(0.0f,0.5f,0.0f);  
+    glPointSize(3.0);   
+    glBegin(GL_LINES); 
+    x = (float)radius * cos(359 * PI/180.0f);
+    y = (float)radius * sin(359 * PI/180.0f);
+    for(int j = 0; j < 360; j++)    {
+        glVertex2f(x,y);
+        x = (float)radius * cos(j * PI/180.0f);
+        y = (float)radius * sin(j * PI/180.0f);
+        glVertex2f(x,y);
+    }
+    glEnd();
+    glFlush();
+}
+/**/
+
+int main(int argc, char**argv) {
+    glutInit(&argc, argv);  
+    glutInitWindowPosition(10,10); 
+    glutInitWindowSize(500,500); 
+    glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB); 
+
+    glutCreateWindow("Proyecto Linea"); 
+    init(); 
+    glutDisplayFunc(drawLines); 
+    glutMainLoop();
+}

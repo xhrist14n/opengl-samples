@@ -1,0 +1,12 @@
+# depslib dependency file v1.0
+1379999870 source:c:\users\toshiba\documents\wxdevcpp\proyectofreeglut\main.cpp
+	<GL/freeglut.h>
+	<cstdarg>
+	<cstdio>
+	<cstdlib>
+	<cmath>
+	<ctime>
+	<iostream>
+	<cassert>
+	<crtdbg.h>
+
